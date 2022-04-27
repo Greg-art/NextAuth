@@ -44,10 +44,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     authChannel = new BroadcastChannel('auth')
+
     authChannel.onmessage = (message) => {
       switch (message.data) {
-        case "signOut":
-          signOut();
+        case 'signOut':
+          Router.push('/');
           break;
         default:
           break;
